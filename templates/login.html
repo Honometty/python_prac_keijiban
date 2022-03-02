@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/style.css?v=12">
+  <title>ログインページ</title>
+</head>
+<body>
+  <div class="content">
+    <h1>会員制の掲示板</h1>
+    <form action="/try_login" method="POST" class="pure-foem pure-form-stacked">
+      <legend>ログインが必要です</legend>
+      <fieldset>
+        <label for="user">ユーザ名</label>
+        <input type="text" name="user" id="user">
+        <label for="pw">パスワード</label>
+        <input type="password" name="pw" id="pw">
+        <button type="submit" class="pure-button pure-button-primary">ログイン</button>
+      </fieldset>
+    </form>
+  </div>
+</body>
+</html>

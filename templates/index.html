@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メインページ</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/style.css?v=0220">
+</head>
+<body>
+  <div class="content">
+    <!-- 書き込みフォーム -->
+    <h1>
+      <a id="menu-switch" href="#">≡</a>
+      会員制の掲示板 - {{ user }}
+    </h1>
+    <a href="/logout" class="pure-menu-link">→ログアウト</a>
+    <!-- メニュー -->
+    <div id="menu" class="pure-menu pure-u-2-5">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item">
+          <a href="/logout" class="pure-menu-link">→ログアウト</a>
+        </li>
+      </ul>
+    </div>
+    <form action="/write" method="POST" class="pure-form pure-form-stacked">
+      <textarea name="ta" cols="60" rows="4"></textarea>
+      <button type="submit" class="pure-button pure-button-primary">書き込む</button>
+    </form>
+    <!-- 掲示板のログを表示する -->
+    {% for i in data %}
+      <div class="box">
+        <p class="box_h">{{ i.name }} - {{ i.date }}</p>
+        <p>{{ i.text }}</p>
+      </div>
+    {% endfor %}
+    <!-- ハンバーガーメニューの開閉処理 -->
+    <script type="text/javascript">
+      function $(id) { return document.querySelector(id) }
+      $("#menu-switch")._b = false
+      $("#menu-switch").onckick = ()=>{
+        $("menu-switch")._b = !$("#menu-switch")._b
+        if ($("#menu-switch")._b) {
+          $("menu").style.display = "block"
+        } else {
+          $("#menu").style.display = "none"
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>
